@@ -11,47 +11,72 @@
  *
  * @package dragana_custom_theme
  */
-
-get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-		<?php
-		if ( have_posts() ) :
+	<?php
+	get_header();
+	?>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+	<div id="content" class="site-content">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
+				
+				
 				<?php
-			endif;
+				include 'banner.php';
+				include 'product-cats.php';
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+				if ( have_posts() ) :
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+					if ( is_home() && ! is_front_page() ) :
+						?>
+						<header>
+							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+						</header>
+						<?php
+					endif;
 
-			endwhile;
+					/* Start the Loop */
+					while ( have_posts() ) :
+						the_post();
 
-			the_posts_navigation();
+						/*
+						* Include the Post-Type-specific template for the content.
+						* If you want to override this in a child theme, then include a file
+						* called content-___.php (where ___ is the Post Type name) and that will be used instead.
+						*/
+						get_template_part( 'template-parts/content', get_post_type() );
 
-		else :
+					endwhile;
 
-			get_template_part( 'template-parts/content', 'none' );
+					the_posts_navigation();
 
-		endif;
-		?>
+				else :
 
-	</main><!-- #main -->
+					get_template_part( 'template-parts/content', 'none' );
 
-<?php
-get_sidebar();
-get_footer();
+				endif;
+
+
+				include 'team-list.php';
+				include 'product-slider.php';
+				include 'slider.php';
+				include 'newsletter.php';
+				?>
+
+			</main><!-- #main -->
+		</div>
+	</div>
+
+	<?php
+	// get_sidebar();
+	get_footer();
+	?>
+
+</div>
+
+
+

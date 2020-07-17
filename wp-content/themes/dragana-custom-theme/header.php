@@ -14,8 +14,24 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="author" href="/humans.txt" />
+	<!--
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<script type="text/javascript" src="/js/site.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" defer></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" defer></script> 
+	-->
+
+	<title>WP Products</title>
+	<meta name='robots' content='noindex,follow' />
 
 	<?php wp_head(); ?>
 </head>
@@ -25,35 +41,72 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'dragana_custom_theme' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$dragana_custom_theme_description = get_bloginfo( 'description', 'display' );
-			if ( $dragana_custom_theme_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $dragana_custom_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'dragana_custom_theme' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+	<header id="masthead" class="site-header">
+		<div class="container">
+			<div class="site-header__container">
+				<div class="site-header__branding">
+
+					<a class="site-header__logo" href="<?php echo home_url( '/' ); ?>" rel="home">
+						<!-- header image field to show logo for options page header -->
+							<img class="site-header__logo-img" src="<?php the_field('header_logo', 'options'); ?>" alt="Starter Logo" title="Starter">
+					</a>
+				</div>
+
+				<div class="site-header__nav-outer js-nav-outer">
+					<div class="site-header__nav-inner js-nav-inner">
+						<nav id="site-navigation" class="site-nav">
+							<!--This HTML structure and classes must stay the same as this is how wp_nav_menu() 
+							function will render it. You can add new elements in <li> or <a> tags, such as SVGs 
+							or <span>s, but you cannot rearrange elements, wrap them in additional <div>s or 
+							change classes.//-->
+							<ul class="site-nav__list">
+								<li class="menu-item">
+									<a href="#">Menu Item</a>
+								</li>
+
+								<li class="menu-item menu-item-has-children">
+									<a href="#">Menu Item 2</a>
+									<span class="site-nav__icon js-nav-icon svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.406 8.578L12 13.172l4.594-4.594L18 9.984l-6 6-6-6z"></path></svg></span>	
+									<ul class="sub-menu">
+										<li class="menu-item">
+											<a href="#">Submenu Item</a>
+										</li>
+
+										<li class="menu-item menu-item-has-children">
+											<a href="#">Submenu Item 2</a>
+											<span class="site-nav__icon js-nav-icon svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.578 16.594L13.172 12 8.578 7.406 9.984 6l6 6-6 6z"></path></svg></span>	
+											<ul class="sub-menu">
+												<li class="menu-item">
+													<a href="#">Third Level Item</a>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">Third Level Item 2</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+					
+
+							<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-1',
+									'menu_id'        => 'primary-menu',
+								)
+							);
+							?>
+
+						</nav><!-- #site-navigation -->
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<a href="javascript:" class="site-header__hamburger hamburger js-menu-btn"><span></span></a>
+
 	</header><!-- #masthead -->

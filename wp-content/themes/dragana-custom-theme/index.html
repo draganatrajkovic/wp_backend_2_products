@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="author" href="/humans.txt" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<script type="text/javascript" src="/js/site.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" defer></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" defer></script>
+
+	<title>Site Title</title>
+	<meta name='robots' content='noindex,follow' />
+</head>
+
+<body>
+	<div id="page" class="site">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<header id="masthead" class="site-header">
+			<div class="container">
+				<div class="site-header__container">
+					<div class="site-header__branding">
+						<a class="site-header__logo" href="/" rel="home">
+							<img class="site-header__logo-img" src="/assets/images/logo-white.png" alt="Starter Logo" title="Starter">
+						</a>
+					</div>
+
+					<div class="site-header__nav-outer js-nav-outer">
+						<div class="site-header__nav-inner js-nav-inner">
+							<nav id="site-navigation" class="site-nav">
+
+								<!--
+						This HTML structure and classes must stay the same as this is how wp_nav_menu() function
+						will render it.
+						You can add new elements in <li> or <a> tags, such as SVGs or <span>s, but you cannot rearrange
+						elements, wrap them in additional <div>s or change classes.
+						//-->
+								<ul class="site-nav__list">
+									<li class="menu-item">
+										<a href="#">Menu Item</a>
+									</li>
+
+									<li class="menu-item menu-item-has-children">
+										<a href="#">Menu Item 2</a>
+										<span class="site-nav__icon js-nav-icon svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.406 8.578L12 13.172l4.594-4.594L18 9.984l-6 6-6-6z"></path></svg></span>	
+										<ul class="sub-menu">
+											<li class="menu-item">
+												<a href="#">Submenu Item</a>
+											</li>
+
+											<li class="menu-item menu-item-has-children">
+												<a href="#">Submenu Item 2</a>
+												<span class="site-nav__icon js-nav-icon svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.578 16.594L13.172 12 8.578 7.406 9.984 6l6 6-6 6z"></path></svg></span>	
+												<ul class="sub-menu">
+													<li class="menu-item">
+														<a href="#">Third Level Item</a>
+													</li>
+
+													<li class="menu-item">
+														<a href="#">Third Level Item 2</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+							<!-- #site-navigation -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<a href="javascript:" class="site-header__hamburger hamburger js-menu-btn"><span></span></a>
+		</header>
+
+		<div id="content" class="site-content">
+			<div id="primary" class="content-area">
+				<main id="main" class="site-main" role="main">
+					<div class="banner">
+						<picture class="banner__image">
+							<source media="(min-width: 1200px)" srcset="/assets/images/banner-dog-desk.jpg">
+								<source media="(min-width: 640px)" srcset="/assets/images/banner-dog-tab.jpg">
+									<source media="(min-width: 320px)" srcset="/assets/images/banner-dog-mob.jpg">
+										<img class="cover-img" src="/assets/images/banner-dog-desk.jpg" alt="">
+						</picture>
+
+						<div class="banner__caption">
+							<h1 class="banner__caption-title">This is Title</h1>
+							<p class="banner__caption-text">Here goes description paragraph</p>
+						</div>
+
+						<div class="popup js-popup">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+								dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+					</div>
+					<!-- .banner -->
+					<div class="product-cats">
+						<div class="container">
+							<h2 class="product-cats__title section-title">Top Product Categories</h2>
+							<div class="row">
+								<div class="col-md-3 col-6">
+									<a class="product-cats__item" href="javascript:;">
+										<img src="/assets/images/product_cat_1.jpg" alt="" class="product-cats__item-thumb">
+										<h3 class="product-cats__item-title">Category Title</h3>
+									</a>
+								</div>
+								<div class="col-md-3 col-6">
+									<a class="product-cats__item" href="javascript:;">
+										<img src="/assets/images/product_cat_2.jpg" alt="" class="product-cats__item-thumb">
+										<h3 class="product-cats__item-title">Category Title</h3>
+									</a>
+								</div>
+								<div class="col-md-3 col-6">
+									<a class="product-cats__item" href="javascript:;">
+										<img src="/assets/images/product_cat_3.jpg" alt="" class="product-cats__item-thumb">
+										<h3 class="product-cats__item-title">Category Title</h3>
+									</a>
+								</div>
+								<div class="col-md-3 col-6">
+									<a class="product-cats__item" href="javascript:;">
+										<img src="/assets/images/product_cat_4.jpg" alt="" class="product-cats__item-thumb">
+										<h3 class="product-cats__item-title">Category Title</h3>
+									</a>
+								</div>
+								<div class="col-md-3 col-6">
+									<a class="product-cats__item" href="javascript:;">
+										<img src="/assets/images/product_cat_5.jpg" alt="" class="product-cats__item-thumb">
+										<h3 class="product-cats__item-title">Category Title</h3>
+									</a>
+								</div>
+								<div class="col-md-3 col-6">
+									<a class="product-cats__item" href="javascript:;">
+										<img src="/assets/images/product_cat_6.jpg" alt="" class="product-cats__item-thumb">
+										<h3 class="product-cats__item-title">Category Title</h3>
+									</a>
+								</div>
+								<div class="col-md-3 col-6">
+									<a class="product-cats__item" href="javascript:;">
+										<img src="/assets/images/product_cat_7.jpg" alt="" class="product-cats__item-thumb">
+										<h3 class="product-cats__item-title">Category Title</h3>
+									</a>
+								</div>
+								<div class="col-md-3 col-6">
+									<a class="product-cats__item" href="javascript:;">
+										<img src="/assets/images/product_cat_8.jpg" alt="" class="product-cats__item-thumb">
+										<h3 class="product-cats__item-title">Category Title</h3>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- .product-cats -->
+					<div class="story-block ">
+						<div class="container">
+							<div class="row story-block--row">
+								<div class="col-lg-6 story-block__content">
+									<h2 class="story-block__content-title section-title">Story Block Section</h2>
+									<div class="entry-content story-block--entry-content">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+										<p>Ab aspernatur consequuntur corporis eaque illo minus nesciunt nostrum obcaecati officia pariatur porro quasi quidem quis reprehenderit similique veritatis, voluptatum? Sequi, tenetur!</p>
+									</div>
+									<a href="javascript:;" class="btn" target="_blank">Read More</a>
+								</div>
+								<div class="col-lg-6 story-block__image">
+									<img src="/assets/images/story_block.jpg" alt="Alt Text">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- .story-block -->
+					<div class="story-block story-block--alt">
+						<div class="container">
+							<div class="row story-block--row">
+								<div class="col-lg-6 story-block__content">
+									<h2 class="story-block__content-title section-title">Story Block Section -- Alt</h2>
+									<div class="entry-content story-block--entry-content">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+										<p>Ab aspernatur consequuntur corporis eaque illo minus nesciunt nostrum obcaecati officia pariatur porro quasi quidem quis reprehenderit similique veritatis, voluptatum? Sequi, tenetur!</p>
+									</div>
+									<a href="javascript:;" class="btn" target="_blank">Read More</a>
+								</div>
+								<div class="col-lg-6 story-block__image">
+									<img src="/assets/images/story_block_alt.jpg" alt="Alt Text">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- .story-block -->
+					<div class="team-list">
+						<div class="container">
+							<h2 class="section-title team-list--title">Team List</h2>
+							<div class="row">
+								<div class="col-lg-6 team-list__box">
+									<div class="team-list__img-holder">
+										<img class="team-list__img" src="/assets/images/team_1.jpg" alt="">
+									</div>
+									<div class="team-list__content">
+										<h3 class="team-list__content-title" text>Emiko Groce</h3>
+										<div class="team-list__content-text">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur consequuntur corporis eaque illo minus nesciunt nostrum obcaecati officia pariatur porro quasi quidem quis reprehenderit similique veritatis, voluptatum? Sequi, tenetur!</p>
+										</div>
+										<a href="javascript:;" class="btn team-list__content-btn js-open-popup">Read More</a>
+										<div class="popup-holder js-popup-holder">
+											<div class="popup-overlay js-popup-overlay"></div>
+											<div class="popup-content">
+												<a href="javascript:;" class="popup-close js-popup-close"></a>
+												<h3 class="popup-title">Emiko Groce</h3>
+												<div class="popup-text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur consequuntur corporis eaque illo minus nesciunt nostrum obcaecati officia pariatur porro quasi quidem quis reprehenderit similique veritatis, voluptatum? Sequi, tenetur!</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 team-list__box">
+									<div class="team-list__img-holder">
+										<img class="team-list__img" src="/assets/images/team_2.jpg" alt="">
+									</div>
+									<div class="team-list__content">
+										<h3 class="team-list__content-title" text>Leonila Gillins</h3>
+										<div class="team-list__content-text">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur consequuntur corporis eaque illo minus nesciunt nostrum obcaecati officia pariatur porro quasi quidem quis reprehenderit similique veritatis, voluptatum? Sequi, tenetur!</p>
+										</div>
+										<a href="javascript:;" class="btn team-list__content-btn js-open-popup">Read More</a>
+										<div class="popup-holder js-popup-holder">
+											<div class="popup-overlay js-popup-overlay"></div>
+											<div class="popup-content">
+												<a href="javascript:;" class="popup-close js-popup-close"></a>
+												<h3 class="popup-title">Leonila Gillins</h3>
+												<div class="popup-text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur consequuntur corporis eaque illo minus nesciunt nostrum obcaecati officia pariatur porro quasi quidem quis reprehenderit similique veritatis, voluptatum? Sequi, tenetur!</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- .team-list -->
+					<div class="product-slider">
+						<div class="container">
+							<h2 class="product-slider__title section-title">Latest Products</h2>
+
+							<div class="product-slider__items js-products-slider row">
+								<div class="product-slider__item">
+									<div class="product-slider__item-body">
+										<a href="javascript:;" class="product-slider__item-thumb-holder">
+											<img src="/assets/images/prod_1.jpg" alt="" class="product-slider__item-thumb">
+										</a>
+										<div class="product-slider__item-content">
+											<h3 class="product-slider__item-title title-small">
+								<a href="javascript:;">Product Title</a>
+							</h3>
+
+											<p class="product-slider__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											<a href="javascript:;" class="btn">Load More</a>
+										</div>
+									</div>
+								</div>
+								<div class="product-slider__item">
+									<div class="product-slider__item-body">
+										<a href="javascript:;" class="product-slider__item-thumb-holder">
+											<img src="/assets/images/prod_2.jpg" alt="" class="product-slider__item-thumb">
+										</a>
+										<div class="product-slider__item-content">
+											<h3 class="product-slider__item-title title-small">
+								<a href="javascript:;">Product Title</a>
+							</h3>
+
+											<p class="product-slider__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											<a href="javascript:;" class="btn">Load More</a>
+										</div>
+									</div>
+								</div>
+								<div class="product-slider__item">
+									<div class="product-slider__item-body">
+										<a href="javascript:;" class="product-slider__item-thumb-holder">
+											<img src="/assets/images/prod_3.jpg" alt="" class="product-slider__item-thumb">
+										</a>
+										<div class="product-slider__item-content">
+											<h3 class="product-slider__item-title title-small">
+								<a href="javascript:;">Product Title</a>
+							</h3>
+
+											<p class="product-slider__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											<a href="javascript:;" class="btn">Load More</a>
+										</div>
+									</div>
+								</div>
+								<div class="product-slider__item">
+									<div class="product-slider__item-body">
+										<a href="javascript:;" class="product-slider__item-thumb-holder">
+											<img src="/assets/images/prod_4.jpg" alt="" class="product-slider__item-thumb">
+										</a>
+										<div class="product-slider__item-content">
+											<h3 class="product-slider__item-title title-small">
+								<a href="javascript:;">Product Title</a>
+							</h3>
+
+											<p class="product-slider__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											<a href="javascript:;" class="btn">Load More</a>
+										</div>
+									</div>
+								</div>
+								<div class="product-slider__item">
+									<div class="product-slider__item-body">
+										<a href="javascript:;" class="product-slider__item-thumb-holder">
+											<img src="/assets/images/prod_5.jpg" alt="" class="product-slider__item-thumb">
+										</a>
+										<div class="product-slider__item-content">
+											<h3 class="product-slider__item-title title-small">
+								<a href="javascript:;">Product Title</a>
+							</h3>
+
+											<p class="product-slider__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											<a href="javascript:;" class="btn">Load More</a>
+										</div>
+									</div>
+								</div>
+								<div class="product-slider__item">
+									<div class="product-slider__item-body">
+										<a href="javascript:;" class="product-slider__item-thumb-holder">
+											<img src="/assets/images/prod_6.jpg" alt="" class="product-slider__item-thumb">
+										</a>
+										<div class="product-slider__item-content">
+											<h3 class="product-slider__item-title title-small">
+								<a href="javascript:;">Product Title</a>
+							</h3>
+
+											<p class="product-slider__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											<a href="javascript:;" class="btn">Load More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- .product-slider -->
+					<div class="basic-slider js-slider">
+						<figure>
+							<img src="/assets/images/slide-1.jpg" alt="">
+						</figure>
+						<figure>
+							<img src="/assets/images/slide-2.jpg" alt="">
+						</figure>
+						<figure>
+							<img src="/assets/images/slide-3.jpg" alt="">
+						</figure>
+						<figure>
+							<img src="/assets/images/slide-4.jpg" alt="">
+						</figure>
+						<figure>
+							<img src="/assets/images/slide-5.jpg" alt="">
+						</figure>
+					</div>
+					<!-- .slider -->
+					<div class="newsletter" style="background-image: url('assets/images/newsletter-background.jpg');">
+						<div class="container">
+							<div class="newsletter__row">
+								<h2 class="newsletter__title">Newsletter</h2>
+								<form class="newsletter_form">
+									<input type="email" class="newsletter_form-input" requred>
+									<button class="newsletter_form-submit icon font-ico-airplane">
+										</span>
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- .newsletter -->
+				</main>
+			</div>
+		</div>
+
+		<footer id="colophon" class="site-footer">
+			<div class="container">
+				<div class="row site-footer__top">
+					<div class="site-footer__logo-holder site-footer__box col-md-4">
+						<a class="site-footer__logo" href="/" rel="home">
+							<img class="site-footer__logo-img" src="/assets/images/logo-white.png" alt="Starter Logo" title="Starter">
+						</a>
+					</div>
+					<div class="site-footer__nav-holder site-footer__box col-md-4">
+						<h4 class="site-footer__box-title title-small">Navigation</h4>
+						<ul class="site-footer__nav">
+							<li class="site-footer__nav-list"><a href="/" class="site-footer__nav-link">About</a>
+							</li>
+							<li class="site-footer__nav-list"><a href="/" class="site-footer__nav-link">Who we are</a>
+							</li>
+							<li class="site-footer__nav-list"><a href="/" class="site-footer__nav-link">Contact</a>
+							</li>
+							<li class="site-footer__nav-list"><a href="/" class="site-footer__nav-link">Blog</a>
+							</li>
+						</ul>
+					</div>
+					<div class="site-footer__social-holder site-footer__box col-md-4">
+						<h4 class="site-footer__box-title title-small">Social Links</h4>
+						<ul class="site-footer__social">
+							<li class="site-footer__social-item">
+								<a href="https://twitter.com/" class="site-footer__social-link icon font-ico-twitter" target="_blank" rel="noopener"></a>
+							</li>
+							<li class="site-footer__social-item">
+								<a href="https://www.instagram.com/" class="site-footer__social-link icon font-ico-instagram" target="_blank" rel="noopener"></a>
+							</li>
+							<li class="site-footer__social-item">
+								<a href="https://www.facebook.com/" class="site-footer__social-link icon font-ico-facebook" target="_blank" rel="noopener"></a>
+							</li>
+							<li class="site-footer__social-item">
+								<a href="https://www.linkedin.com/" class="site-footer__social-link icon font-ico-linkedin" target="_blank" rel="noopener"></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="copyright">
+					<p>@copyright text goes here</p>
+				</div>
+				<!-- .copyright -->
+			</div>
+		</footer>
+		<!-- #colophon -->
+	</div>
+</body>
+
+</html>

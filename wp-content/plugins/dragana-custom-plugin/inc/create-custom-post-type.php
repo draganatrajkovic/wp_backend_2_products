@@ -3,6 +3,8 @@
 Plugin Name: Dragana Custom Plugin
 */
 
+require_once plugin_dir_path(__FILE__) . 'create-custom-fields.php';
+
 class CreateCustomPostType {
 
     public function __construct(string $name, string $singularName, string $menuName, string $slug) {
@@ -36,10 +38,12 @@ class CreateCustomPostType {
                 'menu_position' => 4,
                 'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'comments'],
                 'has_archive' => true,
+                'menu_icon' => 'dashicons-groups',
                 'rewrite' => ['slug' => $this->$slug ]
             ]
         );
 
+        $customFields = new CreateCustomFields();
 
     }
 

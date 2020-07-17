@@ -7,32 +7,6 @@
  * @package dragana_custom_theme
  */
 
-
-if( function_exists('acf_add_options_page') ) {
-	
-	acf_add_options_page(array(
-		'page_title' 	=> 'Options Page',
-		'menu_title'	=> 'Options Page',
-		'menu_slug' 	=> 'options-page',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Options Page Header',
-		'menu_title'	=> 'Header',
-		'parent_slug'	=> 'options-page',
-	));
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Options Page Footer',
-		'menu_title'	=> 'Footer',
-		'parent_slug'	=> 'options-page',
-	));
-	
-}
-
-
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '5.0.0' );
@@ -169,16 +143,27 @@ add_action( 'widgets_init', 'dragana_custom_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dragana_custom_theme_scripts() {
-	wp_enqueue_style( 'dragana_custom_theme-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'dragana_custom_theme-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'dragana_custom_theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_register_style( 'my-style', get_template_directory_uri() . '/css/style.min.css' ); //// get_template_directory_uri() - Inside a parent theme
+	wp_enqueue_style('my-style');
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_register_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css', array(), '4.4.1', 'all');
+	wp_enqueue_style('bootstrap');
+
+	wp_register_script('my-scrypt', get_template_directory_uri() . '/js/site.min.js');
+	wp_enqueue_script('my-scrypt');
+	
+	wp_register_script('npm-script', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js');
+	wp_enqueue_script('npm-script');
+
+	wp_register_script('bootstrap-script', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js');
+	wp_enqueue_script('bootstrap-script');
 }
+
 add_action( 'wp_enqueue_scripts', 'dragana_custom_theme_scripts' );
+
+
+
 
 /**
  * Implement the Custom Header feature.
@@ -206,6 +191,4 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
-
 

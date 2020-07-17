@@ -14,6 +14,31 @@ if (! defined('ABSPATH')) {
     die;
 }
 
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Options Page',
+		'menu_title'	=> 'Options Page',
+		'menu_slug' 	=> 'options-page',
+        'capability'	=> 'edit_posts',
+        'icon_url'      => 'dashicons-welcome-write-blog',
+		'redirect'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Options Page Header',
+		'menu_title'	=> 'Header',
+		'parent_slug'	=> 'options-page',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Options Page Footer',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'options-page',
+	));
+	
+}
+
 class DraganaCustomPlugin {
     public function __construct() {
         add_action('init', array($this, 'start'));
@@ -38,6 +63,7 @@ class DraganaCustomPlugin {
             $team = new CreateCustomPostType('team', 'Team', 'Teams', 'team');
         }
     }
+    
 }
 
 if (class_exists('DraganaCustomPlugin')) {
