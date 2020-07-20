@@ -60,44 +60,54 @@
 							function will render it. You can add new elements in <li> or <a> tags, such as SVGs 
 							or <span>s, but you cannot rearrange elements, wrap them in additional <div>s or 
 							change classes.//-->
-							<ul class="site-nav__list">
-								<li class="menu-item">
-									<a href="#">Menu Item</a>
-								</li>
 
-								<li class="menu-item menu-item-has-children">
-									<a href="#">Menu Item 2</a>
-									<span class="site-nav__icon js-nav-icon svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.406 8.578L12 13.172l4.594-4.594L18 9.984l-6 6-6-6z"></path></svg></span>	
-									<ul class="sub-menu">
-										<li class="menu-item">
-											<a href="#">Submenu Item</a>
-										</li>
-
-										<li class="menu-item menu-item-has-children">
-											<a href="#">Submenu Item 2</a>
-											<span class="site-nav__icon js-nav-icon svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.578 16.594L13.172 12 8.578 7.406 9.984 6l6 6-6 6z"></path></svg></span>	
-											<ul class="sub-menu">
-												<li class="menu-item">
-													<a href="#">Third Level Item</a>
-												</li>
-
-												<li class="menu-item">
-													<a href="#">Third Level Item 2</a>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-					
-
-							<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1',
-									'menu_id'        => 'primary-menu',
-								)
+							<?php 
+							wp_nav_menu( 
+								array( 
+									'fallback_cb' => 'custom_primary_menu_fallback', 
+									'menu' => 'menu', 
+									'container' => false, 
+									'menu_id' => 'menu', 
+									'menu_class'=>'site-nav__list', 
+									'theme_location'=>'primary-menu' 
+								) 
 							);
+							
+							function custom_primary_menu_fallback() {
+							?>
+
+								<ul id="menu" class="site-nav__list">
+									<li class="menu-item">
+										<a href="#">Menu Item</a>
+									</li>
+
+									<li class="menu-item menu-item-has-children">
+										<a href="#">Menu Item 2</a>
+										<span class="site-nav__icon js-nav-icon svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.406 8.578L12 13.172l4.594-4.594L18 9.984l-6 6-6-6z"></path></svg></span>	
+										<ul class="sub-menu">
+											<li class="menu-item">
+												<a href="#">Submenu Item</a>
+											</li>
+
+											<li class="menu-item menu-item-has-children">
+												<a href="#">Submenu Item 2</a>
+												<span class="site-nav__icon js-nav-icon svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.578 16.594L13.172 12 8.578 7.406 9.984 6l6 6-6 6z"></path></svg></span>	
+												<ul class="sub-menu">
+													<li class="menu-item">
+														<a href="#">Third Level Item</a>
+													</li>
+
+													<li class="menu-item">
+														<a href="#">Third Level Item 2</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+
+							<?php 
+							} 
 							?>
 
 						</nav><!-- #site-navigation -->
