@@ -3,13 +3,16 @@
 Plugin Name: Dragana Custom Plugin
 */
 
-
 class CreateCustomFields {
     public function __construct() {
         add_action('acf/init', $this->header_custom_fields());
         add_action('acf/init', $this->footer_custom_fields());
-    }
 
+        add_action('acf/init', $this->create_flexible_content());
+        
+    }
+    
+// -----------------header custom fields-----------------
     public function header_custom_fields() {
         acf_add_local_field_group(
             [
@@ -37,6 +40,7 @@ class CreateCustomFields {
         );
     }
 
+// -----------------footer custom fields-----------------
     public function footer_custom_fields() {
         $this->footer_custom_fields_logo();
         $this->footer_custom_fields_nav();
@@ -70,7 +74,6 @@ class CreateCustomFields {
         );
     }
 
-    
     public function footer_custom_fields_nav() {
         acf_add_local_field_group(
             [
@@ -187,6 +190,148 @@ class CreateCustomFields {
             ]
         );
     }
+
+    public function create_flexible_content() {
+        //1 - create custom field group for options page (in rules chose options page...)
+        //2 - fields will be different sections on the page
+        //3 - define its key and layouts
+        //4 - separately create each field and connect with layout key and flex field key
+
+        acf_add_local_field_group(
+            [
+                'key' => 'create_flexible_content',
+                'title' => 'Create Flexible Content',
+                'fields' => [
+                    [
+                        'key' => 'flexible_content_banner',
+                        'label' => 'Flexible Content Banner',
+                        'name' => 'flexible_content_banner',
+                        'type' => 'flexible_content',
+                        // 'type' => 'repeater',
+                        'button_label' => 'Add Banner Row',
+                        'layouts' => [
+                            [
+                                'key' => 'banner_layout',
+                                'name' => 'banner_layout',
+                                'label' => 'Add Banner'
+                            ],
+                        ],
+                    ],
+                ],
+                'location' => [
+                    [
+                        [
+                            'param' => 'options_page',
+                            'operator' => '==',
+                            'value' => 'options-page',
+                        ],
+                    ],
+                ]
+            ]
+          );
+
+        acf_add_local_field(
+            [
+                'key' => 'banner_title',
+                'label' => 'Banner Title',
+                'name' => 'banner_title',
+                'type' => 'text',
+                    'parent' => 'flexible_content_banner', //flex field key
+                    'parent_layout' => 'banner_layout', // layout key
+                'wrapper' => [
+                    'class' => 'banner__caption-title',
+                    'id' => '',
+                ]
+            ]
+        );
+
+        acf_add_local_field(
+            [
+                'key' => 'banner_subtitle',
+                'label' => 'Banner Subtitle',
+                'name' => 'banner_subtitle',
+                'type' => 'text',
+                    'parent' => 'flexible_content_banner', //flex field key
+                    'parent_layout' => 'banner_layout', // layout key
+                'wrapper' => [
+                    'class' => 'banner__caption-text',
+                    'id' => '',
+                ]
+            ]
+        );
+
+
+        // acf_add_local_field(
+        //     [
+        //         'key' => 'banner_img',
+        //         'label' => 'Banner Background Image',
+        //         'name' => 'banner_img',
+        //         'type' => 'image',
+        //             'parent' => 'flexible_content_banner', //flex field key
+        //             'parent_layout' => 'banner_layout', // layout key
+        //         'wrapper' => [
+        //             'class' => 'banner__image',
+        //             'id' => '',
+        //             'return_format' => 'url' //da bismo mogli da prikazemo sliku
+        //         ]
+        //     ]
+        // );
+
+        acf_add_local_field(
+            [
+                'key' => 'banner_img',
+                'label' => 'Banner Background Image',
+                'name' => 'banner_img',
+                'type' => 'flexible_content',
+                    'parent' => 'flexible_content_banner', //flex field key
+                    'parent_layout' => 'banner_layout', // layout key
+                'layouts' => [
+                    [
+                        'key' => 'banner_img_layout',
+                        'name' => 'banner_img_layout',
+                        'label' => 'Add Banner Image'
+                    ],
+                ],
+                'button_label' => 'Add image'
+            ]
+        );
+
+        acf_add_local_field(
+            [
+                'key' => 'banner_img_desk',
+                'label' => 'Banner Image Desktop',
+                'name' => 'banner_img_desk',
+                'type' => 'image',
+                'parent' => 'banner_img',
+            ]
+        );
+
+        acf_add_local_field(
+            [
+                'key' => 'banner_img_tab',
+                'label' => 'Banner Image Tablet',
+                'name' => 'banner_img_tab',
+                'type' => 'image',
+                'parent' => 'banner_img',
+            ]
+        );
+
+        acf_add_local_field(
+            [
+                'key' => 'banner_img_mob',
+                'label' => 'Banner Image Mobile',
+                'name' => 'banner_img_mob',
+                'type' => 'image',
+                'parent' => 'banner_img',
+            ]
+        );
+      
+
+    }
+        
+
+
+
 
 
 }

@@ -14,6 +14,7 @@ if (! defined('ABSPATH')) {
     die;
 }
 
+// -----------------create options page-----------------
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
@@ -39,6 +40,7 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
+// -----------------plugin-----------------
 class DraganaCustomPlugin {
     public function __construct() {
         add_action('init', array($this, 'start'));

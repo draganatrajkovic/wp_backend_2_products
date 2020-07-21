@@ -27,7 +27,7 @@
 				
 				<?php
 				include 'banner.php';
-				include 'product-cats.php';
+				// include 'product-cats.php';
 
 				if ( have_posts() ) :
 
@@ -61,10 +61,10 @@
 				endif;
 
 
-				include 'team-list.php';
-				include 'product-slider.php';
-				include 'slider.php';
-				include 'newsletter.php';
+				// include 'team-list.php';
+				// include 'product-slider.php';
+				// include 'slider.php';
+				// include 'newsletter.php';
 				?>
 
 			</main><!-- #main -->
