@@ -207,13 +207,40 @@ class CreateCustomFields {
                         'label' => 'Flexible Content Banner',
                         'name' => 'flexible_content_banner',
                         'type' => 'flexible_content',
-                        // 'type' => 'repeater',
                         'button_label' => 'Add Banner Row',
                         'layouts' => [
                             [
                                 'key' => 'banner_layout',
                                 'name' => 'banner_layout',
                                 'label' => 'Add Banner'
+                            ],
+                        ],
+                    ],
+                    [
+                        'key' => 'flexible_content_product_cats',
+                        'label' => 'Flexible Content Product Categories',
+                        'name' => 'flexible_content_product_cats',
+                        'type' => 'flexible_content',
+                        'button_label' => 'Add Product Categories Row',
+                        'layouts' => [
+                            [
+                                'key' => 'product_cats_layout',
+                                'name' => 'product_cats_layout',
+                                'label' => 'Add Product Category'
+                            ],
+                        ],
+                    ],
+                    [
+                        'key' => 'flexible_content_story_block',
+                        'label' => 'Flexible Content Story Block',
+                        'name' => 'flexible_content_story_block',
+                        'type' => 'flexible_content',
+                        'button_label' => 'Add Story Block Row',
+                        'layouts' => [
+                            [
+                                'key' => 'story_block_layout',
+                                'name' => 'story_block_layout',
+                                'label' => 'Add Story Block'
                             ],
                         ],
                     ],
@@ -228,8 +255,15 @@ class CreateCustomFields {
                     ],
                 ]
             ]
-          );
+        );
 
+        $this->create_banner_fields();
+        $this->create_product_cats_fields();
+
+        $this->create_story_block_fields();
+    }
+        
+    public function create_banner_fields() {
         acf_add_local_field(
             [
                 'key' => 'banner_title',
@@ -259,7 +293,6 @@ class CreateCustomFields {
                 ]
             ]
         );
-
 
         // acf_add_local_field(
         //     [
@@ -325,15 +358,106 @@ class CreateCustomFields {
                 'parent' => 'banner_img',
             ]
         );
-      
-
     }
-        
 
+    public function create_product_cats_fields() {
+        acf_add_local_field(
+            [
+                'key' => 'product_cats_title',
+                'label' => 'Product Categories Title',
+                'name' => 'product_cats_title',
+                'type' => 'text',
+                    'parent' => 'flexible_content_product_cats', //flex field key
+                    'parent_layout' => 'product_cats_layout', // layout key
+                'wrapper' => [
+                    'class' => '',
+                    'id' => '',
+                ]
+            ]
+        );
+    }
 
+    public function create_story_block_fields() {
+        acf_add_local_field(
+            [
+                'key' => 'story_block_switch_but',
+                'label' => 'Story Block Switch Button',
+                'name' => 'story_block_switch_but',
+                'type' => 'true_false',
+                'ui' => true,
+                'ui_on_text' => 'Regular Pozition',
+                'ui_off_text' => 'Reversed Pozition',
+                'default_value' => true,
+                    'parent' => 'flexible_content_story_block', //flex field key
+                    'parent_layout' => 'story_block_layout', // layout key
+                'wrapper' => [
+                    'class' => '',
+                    'id' => '',
+                ]
+            ]
+        );
 
+        acf_add_local_field(
+            [
+                'key' => 'story_block_img',
+                'label' => 'Story Block Image',
+                'name' => 'story_block_img',
+                'type' => 'image',
+                'return_format' => 'url',//if return url format no need for $image['url'] when we showing in html
+                    'parent' => 'flexible_content_story_block', //flex field key
+                    'parent_layout' => 'story_block_layout', // layout key
+                'wrapper' => [
+                    'class' => '',
+                    'id' => '',
+                ]
+            ]
+        );
 
+        acf_add_local_field(
+            [
+                'key' => 'story_block_title',
+                'label' => 'Story Block Title',
+                'name' => 'story_block_title',
+                'type' => 'text',
+                    'parent' => 'flexible_content_story_block', //flex field key
+                    'parent_layout' => 'story_block_layout', // layout key
+                'wrapper' => [
+                    'class' => '',
+                    'id' => '',
+                ]
+            ]
+        );
 
+        acf_add_local_field(
+            [
+                'key' => 'story_block_text',
+                'label' => 'Story Block Text',
+                'name' => 'story_block_text',
+                'type' => 'wysiwyg',
+                    'parent' => 'flexible_content_story_block', //flex field key
+                    'parent_layout' => 'story_block_layout', // layout key
+                'wrapper' => [
+                    'class' => '',
+                    'id' => '',
+                ]
+            ]
+        );
+
+        acf_add_local_field(
+            [
+                'key' => 'story_block_link',
+                'label' => 'Story Block Link',
+                'name' => 'story_block_link',
+                'type' => 'link',
+                    'parent' => 'flexible_content_story_block', //flex field key
+                    'parent_layout' => 'story_block_layout', // layout key
+                'wrapper' => [
+                    'class' => '',
+                    'id' => '',
+                ]
+            ]
+        );
+    }
 }
 
 

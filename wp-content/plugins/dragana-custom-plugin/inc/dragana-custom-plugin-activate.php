@@ -4,7 +4,7 @@ Plugin Name: Dragana Custom Plugin
 */
 
 class DraganaCustomPluginActivate {
-    public function activate() {
+    public static function activate() {
         flush_rewrite_rules();
     }
 }
