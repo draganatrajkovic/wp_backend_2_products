@@ -144,26 +144,15 @@ add_action( 'widgets_init', 'dragana_custom_theme_widgets_init' );
  */
 function dragana_custom_theme_scripts() {
 
-	wp_register_style( 'my-style', get_template_directory_uri() . '/css/style.min.css' ); //// get_template_directory_uri() - Inside a parent theme
-	wp_enqueue_style('my-style');
+	wp_enqueue_style( 'bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' );
+	wp_enqueue_style( 'my-style', get_template_directory_uri() . '/css/style.min.css' ); //// get_template_directory_uri() - Inside a parent theme
 
-	wp_register_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css', array(), '4.4.1', 'all');
-	wp_enqueue_style('bootstrap');
-
-	wp_register_script('my-scrypt', get_template_directory_uri() . '/js/site.min.js');
-	wp_enqueue_script('my-scrypt');
-	
-	wp_register_script('npm-script', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js');
-	wp_enqueue_script('npm-script');
-
-	wp_register_script('bootstrap-script', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js');
-	wp_enqueue_script('bootstrap-script');
+	wp_enqueue_script('my-scrypt', get_template_directory_uri() . '/js/site.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script( 'npm-js', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', array( 'jquery' ), '1.0.0', true );
+	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', array( 'jquery' ), '1.0.0', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'dragana_custom_theme_scripts' );
-
-
-
 
 /**
  * Implement the Custom Header feature.

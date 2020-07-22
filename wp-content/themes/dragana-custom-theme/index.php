@@ -31,7 +31,7 @@
 				include 'story-block.php';
 
 
-				// include 'team-list.php';
+				include 'team-list.php';
 				// include 'product-slider.php';
 				// include 'slider.php';
 				include 'newsletter.php';

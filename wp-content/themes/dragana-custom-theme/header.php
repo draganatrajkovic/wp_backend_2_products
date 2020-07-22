@@ -22,14 +22,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="author" href="/humans.txt" />
-	<!--
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/style.min.css">
-	<script type="text/javascript" src="/js/site.min.js" defer></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" defer></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" defer></script> 
-	-->
-
 	<title>WP Products</title>
 	<meta name='robots' content='noindex,follow' />
 

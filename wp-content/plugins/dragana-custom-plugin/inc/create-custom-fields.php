@@ -245,18 +245,18 @@ class CreateCustomFields {
                         ],
                     ],
                     [
-                        // 'key' => 'flexible_content_team_list',
-                        // 'label' => 'Flexible Content Team List',
-                        // 'name' => 'flexible_content_team_list',
-                        // 'type' => 'flexible_content',
-                        // 'button_label' => 'Add Team List Row',
-                        // 'layouts' => [
-                        //     [
-                        //         'key' => 'team_list_layout',
-                        //         'name' => 'team_list_layout',
-                        //         'label' => 'Add Team List'
-                        //     ],
-                        // ],
+                        'key' => 'flexible_content_team_list',
+                        'label' => 'Flexible Content Team List',
+                        'name' => 'flexible_content_team_list',
+                        'type' => 'flexible_content',
+                        'button_label' => 'Add Team List Row',
+                        'layouts' => [
+                            [
+                                'key' => 'team_list_layout',
+                                'name' => 'team_list_layout',
+                                'label' => 'Add Team List'
+                            ],
+                        ],
                     ],
                     [
                         'key' => 'flexible_content_newsletter',
@@ -288,8 +288,8 @@ class CreateCustomFields {
         $this->create_banner_fields();
         $this->create_story_block_fields();
         $this->create_newsletter_fields();
+        $this->create_team_list_fields();
 
-        // $this->create_team_list_fields();
         // $this->create_product_cats_fields();
     }
         
@@ -397,7 +397,7 @@ class CreateCustomFields {
                 'label' => 'Story Block Switch Button',
                 'name' => 'story_block_switch_but',
                 'type' => 'true_false',
-                'ui' => true, //potroseno mnogo vremena na trazenje naziva
+                'ui' => true,
                 'ui_on_text' => 'Regular Pozition',
                 'ui_off_text' => 'Reversed Pozition',
                 'default_value' => true,
@@ -468,19 +468,6 @@ class CreateCustomFields {
         );
     }
 
-    public function create_team_list_fields() {
-        acf_add_local_field(
-            [
-                'key' => 'team_list_title',
-                'label' => 'Team List Title',
-                'name' => 'team_list_title',
-                'type' => 'text',
-                'parent' => 'flexible_content_team_list', //flex field key
-                'parent_layout' => 'team_list_layout', // layout key
-            ]
-        );
-    }
-
     public function create_newsletter_fields() {
         acf_add_local_field(
             [
@@ -513,6 +500,52 @@ class CreateCustomFields {
                 'type' => 'text',
                 'parent' => 'flexible_content_newsletter', //flex field key
                 'parent_layout' => 'newsletter_layout', // layout key
+            ]
+        );
+    }
+
+    public function create_team_list_fields() {
+        //just one title
+        acf_add_local_field(
+            [
+                'key' => 'team_list_title',
+                'label' => 'Team List Title',
+                'name' => 'team_list_title',
+                'type' => 'text',
+                'parent' => 'flexible_content_team_list', //flex field key
+                'parent_layout' => 'team_list_layout', // layout key
+            ]
+        );
+
+        //add unlimited rows for team
+        acf_add_local_field(
+            [
+                'key' => 'team_list_post_obj',
+                'label' => 'Select Team',
+                'name' => 'team_list_post_obj',
+                'type' => 'flexible_content',
+                    'parent' => 'flexible_content_team_list', //flex field key
+                    'parent_layout' => 'team_list_layout', // layout key
+                'layouts' => [
+                    [
+                        'key' => 'single_team_layout',
+                        'name' => 'single_team_layout',
+                        'label' => 'Add Team'
+                    ],
+                ],
+                'button_label' => 'Add Team'
+            ]
+        );
+
+        acf_add_local_field(
+            [
+                'key' => 'team_list_single_post',
+                'label' => 'Select Team',
+                'name' => 'team_list_single_post',
+                'type' => 'post_object',
+                'post_type' => 'team',
+                'parent' => 'team_list_post_obj', //flex field key
+                'parent_layout' => 'single_team_layout'
             ]
         );
     }
