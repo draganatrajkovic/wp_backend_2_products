@@ -12,6 +12,12 @@ if( have_rows('flexible_content_story_block', 'option') ):
 ?>
 
     <?php 
+        $link = get_sub_field('story_block_link');
+        $linkText = $link['title'];
+        $image = get_sub_field('story_block_img');
+    ?>
+
+    <?php 
         $switchButton = get_sub_field('story_block_switch_but');
         if ($switchButton == true) :
     ?>
@@ -24,12 +30,10 @@ if( have_rows('flexible_content_story_block', 'option') ):
                         <div class="entry-content story-block--entry-content">
                             <p><?php the_sub_field('story_block_text'); ?></p>
                         </div>
-
-                        <a href="javascript:;" class="btn" target="_blank"><?php the_sub_field('story_block_link'); ?></a>
+                        <a href="javascript:;" class="btn" target="_blank"><?php echo $linkText; ?></a>
                     </div>
 
                     <div class="col-lg-6 story-block__image">
-                        <?php $image = get_sub_field('story_block_img');?>
                         <img src="<?php echo $image; ?>" alt="<?php echo $imageAlt; ?>">
                     </div>
                 </div>
@@ -46,10 +50,9 @@ if( have_rows('flexible_content_story_block', 'option') ):
                         <div class="entry-content story-block--entry-content">
                             <p><?php the_sub_field('story_block_text'); ?></p>
                         </div>
-                        <a href="javascript:;" class="btn" target="_blank"><?php the_sub_field('story_block_link'); ?></a>
+                        <a href="javascript:;" class="btn" target="_blank"><?php echo $linkText; ?></a>
                     </div>
                     <div class="col-lg-6 story-block__image">
-                        <?php $image = get_sub_field('story_block_img');?>
                         <img src="<?php echo $image; ?>" alt="<?php echo $imageAlt; ?>">
                     </div>
                 </div>

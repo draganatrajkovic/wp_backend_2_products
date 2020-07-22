@@ -34,7 +34,7 @@
 				// include 'team-list.php';
 				// include 'product-slider.php';
 				// include 'slider.php';
-				// include 'newsletter.php';
+				include 'newsletter.php';
 				?>
 
 			</main><!-- #main -->
