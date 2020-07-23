@@ -5,20 +5,32 @@
 // echo '--------------------------SLIDER PAGE!--------------------------';
 ?>
 
-<div class="basic-slider js-slider">
-    <figure>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slide-1.jpg" alt="">
-    </figure>
-    <figure>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slide-2.jpg" alt="">
-    </figure>
-    <figure>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slide-3.jpg" alt="">
-    </figure>
-    <figure>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slide-4.jpg" alt="">
-    </figure>
-    <figure>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slide-5.jpg" alt="">
-    </figure>
-</div>
+
+
+<?php  
+if( have_rows('flexible_content_slider', 'option') ): 
+    while ( have_rows('flexible_content_slider', 'option') ) : the_row(); 
+        if(get_row_layout() == 'slider_layout'): 
+?>
+
+    <?php 
+        $images = get_sub_field('slider_gallery');
+        // size: thumbnail, medium, large, full or custom size; npr: $image['sizes']['full']; 
+    ?>
+
+    <?php 
+    if( $images ): ?>
+        <div class="basic-slider js-slider">
+            <?php foreach( $images as $image ): ?>
+                <figure>
+                    <img src="<?php echo $image['url'] ?>" alt="<?php echo $image['filename'] ?>" />
+                </figure>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+
+<?php 
+endif;
+endwhile; 
+endif; 
+?>

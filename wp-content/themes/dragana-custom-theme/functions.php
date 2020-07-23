@@ -154,6 +154,8 @@ function dragana_custom_theme_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'dragana_custom_theme_scripts' );
 
+
+
 /**
  * Implement the Custom Header feature.
  */
