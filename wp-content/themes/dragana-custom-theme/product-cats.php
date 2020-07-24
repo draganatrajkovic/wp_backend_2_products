@@ -19,22 +19,21 @@ if( have_rows('flexible_content_product_cats', 'option') ):
 
                 <?php $categories = get_sub_field('product_cats_category'); ?>
 
-                <?php 
-                    if( $categories ):
-                ?>
+                <?php if( $categories ): ?>
                     
                     <?php 
                         foreach( $categories as $categoryId ): 
-                        $catTitle = get_the_category_by_ID($categoryId);
+                            
+                        $categoryTitle = get_the_category_by_ID($categoryId);
 
-                        $thumbnail_id = get_woocommerce_term_meta( $categoryId, 'thumbnail_id', true ); 
-                        $image = wp_get_attachment_url( $thumbnail_id ); 
+                        $categoryThumbnailId = get_woocommerce_term_meta( $categoryId, 'thumbnail_id', true ); 
+                        $categoryImage = wp_get_attachment_url( $categoryThumbnailId ); 
                     ?>
                     
                         <div class="col-md-3 col-6">
                             <a class="product-cats__item" href="javascript:;">
-                                <img src="<?php echo $image;?>" alt="" class="product-cats__item-thumb">
-                                <h3 class="product-cats__item-title"><?php echo $catTitle; ?></h3>
+                                <img src="<?php echo $categoryImage;?>" alt="<?php echo $categoryTitle;?>" class="product-cats__item-thumb">
+                                <h3 class="product-cats__item-title"><?php echo $categoryTitle; ?></h3>
                             </a> 
                         </div>
                         

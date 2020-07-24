@@ -29,7 +29,7 @@
 				include 'product-cats.php';
 				include 'story-block.php';
 				include 'team-list.php';
-				// include 'product-slider.php';
+				include 'product-slider.php';
 				include 'slider.php';
 				include 'newsletter.php';
 				?>

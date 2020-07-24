@@ -1,0 +1,29 @@
+2020-07-24T11:42:00+00:00 CRITICAL Object of class WP_Post could not be converted to string in C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\product-slider.php on line 31
+
+2020-07-24T12:18:05+00:00 CRITICAL Uncaught Error: Call to undefined function get_content() in C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\product-slider.php:43
+Stack trace:
+#0 C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\index.php(32): include()
+#1 C:\wamp64\www\projects\wp_backend_2_products\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\projects\wp_backend_2_products\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\p...')
+#3 C:\wamp64\www\projects\wp_backend_2_products\index.php(17): require('C:\\wamp64\\www\\p...')
+#4 {main}
+  thrown in C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\product-slider.php on line 43
+
+2020-07-24T12:18:21+00:00 CRITICAL Uncaught Error: Call to undefined function post_content() in C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\product-slider.php:43
+Stack trace:
+#0 C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\index.php(32): include()
+#1 C:\wamp64\www\projects\wp_backend_2_products\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\projects\wp_backend_2_products\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\p...')
+#3 C:\wamp64\www\projects\wp_backend_2_products\index.php(17): require('C:\\wamp64\\www\\p...')
+#4 {main}
+  thrown in C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\product-slider.php on line 43
+
+2020-07-24T13:00:53+00:00 CRITICAL Uncaught Error: Call to undefined function add_filters() in C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\product-slider.php:29
+Stack trace:
+#0 C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\index.php(32): include()
+#1 C:\wamp64\www\projects\wp_backend_2_products\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\p...')
+#2 C:\wamp64\www\projects\wp_backend_2_products\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\p...')
+#3 C:\wamp64\www\projects\wp_backend_2_products\index.php(17): require('C:\\wamp64\\www\\p...')
+#4 {main}
+  thrown in C:\wamp64\www\projects\wp_backend_2_products\wp-content\themes\dragana-custom-theme\product-slider.php on line 29
+

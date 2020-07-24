@@ -315,7 +315,7 @@ class CreateCustomFields {
 
         $this->create_banner_fields();
         $this->create_product_cats_fields();
-        // $this->create_product_slider_fields();
+        $this->create_product_slider_fields();
         $this->create_slider_fields();
         $this->create_story_block_fields();
         $this->create_newsletter_fields();
@@ -427,12 +427,23 @@ class CreateCustomFields {
                 'taxonomy' => 'product_cat',
                 'parent' => 'flexible_content_product_cats', //flex field key
                 'parent_layout' => 'product_cats_layout', // layout key
-                'return_value' => 'term_object'
+                // 'return_value' => 'term_object'
             ]
         );
     }
 
     public function create_product_slider_fields() {
+        acf_add_local_field(
+            [
+                'key' => 'product_slider_title',
+                'label' => 'Latest Products Title',
+                'name' => 'product_slider_title',
+                'type' => 'text',
+                    'parent' => 'flexible_content_product_slider', //flex field key
+                    'parent_layout' => 'product_slider_layout', // layout key
+                'button_label' => 'Add Latest Products Title',
+            ]
+        );
     }
 
     public function create_slider_fields() {

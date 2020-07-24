@@ -26,6 +26,7 @@ if( have_rows('flexible_content_team_list', 'option') ):
                 $singlePost = get_sub_field('team_list_single_post'); 
                 $singlePostTitle = $singlePost->post_title; //'cos it's object!!!
                 $singlePostText = $singlePost->post_content;
+
                 $singlePostId = $singlePost->ID;
                 
                 /*______________________________________________*/
