@@ -204,7 +204,7 @@ class CreateCustomFields {
                 'fields' => [
                     [
                         'key' => 'flexible_content_banner',
-                        'label' => 'Flexible Content Banner',
+                        'label' => 'Banner',
                         'name' => 'flexible_content_banner',
                         'type' => 'flexible_content',
                         'button_label' => 'Add Banner Row',
@@ -218,7 +218,7 @@ class CreateCustomFields {
                     ],
                     [
                         'key' => 'flexible_content_product_cats',
-                        'label' => 'Flexible Content Product Categories',
+                        'label' => 'Product Categories',
                         'name' => 'flexible_content_product_cats',
                         'type' => 'flexible_content',
                         'button_label' => 'Add Product Categories Row',
@@ -231,8 +231,36 @@ class CreateCustomFields {
                         ],
                     ],
                     [
+                        'key' => 'flexible_content_product_slider',
+                        'label' => 'Product Slider',
+                        'name' => 'flexible_content_product_slider',
+                        'type' => 'flexible_content',
+                        'button_label' => 'Add Product Slider Row',
+                        'layouts' => [
+                            [
+                                'key' => 'product_slider_layout',
+                                'name' => 'product_slider_layout',
+                                'label' => 'Add Product Slider'
+                            ],
+                        ],
+                    ],
+                    [
+                        'key' => 'flexible_content_slider',
+                        'label' => 'Gallery',
+                        'name' => 'flexible_content_slider',
+                        'type' => 'flexible_content',
+                        'button_label' => 'Add Slider Row',
+                        'layouts' => [
+                            [
+                                'key' => 'slider_layout',
+                                'name' => 'slider_layout',
+                                'label' => 'Add Gallery'
+                            ],
+                        ],
+                    ],
+                    [
                         'key' => 'flexible_content_story_block',
-                        'label' => 'Flexible Content Story Block',
+                        'label' => 'Story Block',
                         'name' => 'flexible_content_story_block',
                         'type' => 'flexible_content',
                         'button_label' => 'Add Story Block Row',
@@ -245,22 +273,8 @@ class CreateCustomFields {
                         ],
                     ],
                     [
-                        'key' => 'flexible_content_team_list',
-                        'label' => 'Flexible Content Team List',
-                        'name' => 'flexible_content_team_list',
-                        'type' => 'flexible_content',
-                        'button_label' => 'Add Team List Row',
-                        'layouts' => [
-                            [
-                                'key' => 'team_list_layout',
-                                'name' => 'team_list_layout',
-                                'label' => 'Add Team List'
-                            ],
-                        ],
-                    ],
-                    [
                         'key' => 'flexible_content_newsletter',
-                        'label' => 'Flexible Content Newsletter',
+                        'label' => 'Newsletter',
                         'name' => 'flexible_content_newsletter',
                         'type' => 'flexible_content',
                         'button_label' => 'Add Newsletter Row',
@@ -273,19 +287,19 @@ class CreateCustomFields {
                         ],
                     ],
                     [
-                        'key' => 'flexible_content_slider',
-                        'label' => 'Flexible Content Gallery',
-                        'name' => 'flexible_content_slider',
+                        'key' => 'flexible_content_team_list',
+                        'label' => 'Team List',
+                        'name' => 'flexible_content_team_list',
                         'type' => 'flexible_content',
-                        'button_label' => 'Add Slider Row',
+                        'button_label' => 'Add Team List Row',
                         'layouts' => [
                             [
-                                'key' => 'slider_layout',
-                                'name' => 'slider_layout',
-                                'label' => 'Add Gallery'
+                                'key' => 'team_list_layout',
+                                'name' => 'team_list_layout',
+                                'label' => 'Add Team List'
                             ],
                         ],
-                    ],
+                    ]
                 ],
                 'location' => [
                     [
@@ -300,12 +314,12 @@ class CreateCustomFields {
         );
 
         $this->create_banner_fields();
+        $this->create_product_cats_fields();
+        // $this->create_product_slider_fields();
+        $this->create_slider_fields();
         $this->create_story_block_fields();
         $this->create_newsletter_fields();
         $this->create_team_list_fields();
-        $this->create_slider_fields();
-
-        // $this->create_product_cats_fields();
     }
         
     public function create_banner_fields() {
@@ -401,6 +415,38 @@ class CreateCustomFields {
                 'type' => 'text',
                 'parent' => 'flexible_content_product_cats', //flex field key
                 'parent_layout' => 'product_cats_layout', // layout key
+            ]
+        );
+
+        acf_add_local_field(
+            [
+                'key' => 'product_cats_category',
+                'label' => 'Select Product Categories',
+                'name' => 'product_cats_category',
+                'type' => 'taxonomy',
+                'taxonomy' => 'product_cat',
+                'parent' => 'flexible_content_product_cats', //flex field key
+                'parent_layout' => 'product_cats_layout', // layout key
+                'return_value' => 'term_object'
+            ]
+        );
+    }
+
+    public function create_product_slider_fields() {
+    }
+
+    public function create_slider_fields() {
+        acf_add_local_field(
+            [
+                'key' => 'slider_gallery',
+                'label' => 'Slider Gallery',
+                'name' => 'slider_gallery',
+                'type' => 'gallery',
+                    'parent' => 'flexible_content_slider', //flex field key
+                    'parent_layout' => 'slider_layout', // layout key
+                'button_label' => 'Add Gallery',
+                'size' => 'large',
+                'return_format' => 'array'
             ]
         );
     }
@@ -565,21 +611,7 @@ class CreateCustomFields {
         );
     }
 
-    public function create_slider_fields() {
-        acf_add_local_field(
-            [
-                'key' => 'slider_gallery',
-                'label' => 'Slider Gallery',
-                'name' => 'slider_gallery',
-                'type' => 'gallery',
-                    'parent' => 'flexible_content_slider', //flex field key
-                    'parent_layout' => 'slider_layout', // layout key
-                'button_label' => 'Add Gallery',
-                'size' => 'large',
-                'return_format' => 'array'
-            ]
-        );
-    }
+
 }
 
 

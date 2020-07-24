@@ -5,8 +5,6 @@
 // echo '--------------------------SLIDER PAGE!--------------------------';
 ?>
 
-
-
 <?php  
 if( have_rows('flexible_content_slider', 'option') ): 
     while ( have_rows('flexible_content_slider', 'option') ) : the_row(); 

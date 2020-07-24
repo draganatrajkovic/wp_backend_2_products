@@ -26,7 +26,7 @@
 				
 				<?php
 				include 'banner.php';
-				// include 'product-cats.php';
+				include 'product-cats.php';
 				include 'story-block.php';
 				include 'team-list.php';
 				// include 'product-slider.php';

@@ -5,58 +5,49 @@
 // echo '--------------------------PRODUCT CATS PAGE!--------------------------';
 ?>
 
-<div class="product-cats">
-    <div class="container">
-        <h2 class="product-cats__title section-title">Top Product Categories</h2>
-        <div class="row">
-            <div class="col-md-3 col-6">
-                <a class="product-cats__item" href="javascript:;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/product_cat_1.jpg" alt="" class="product-cats__item-thumb">
-                    <h3 class="product-cats__item-title">Category Title</h3>
-                </a>
-            </div>
-            <div class="col-md-3 col-6">
-                <a class="product-cats__item" href="javascript:;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/product_cat_2.jpg" alt="" class="product-cats__item-thumb">
-                    <h3 class="product-cats__item-title">Category Title</h3>
-                </a>
-            </div>
-            <div class="col-md-3 col-6">
-                <a class="product-cats__item" href="javascript:;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/product_cat_3.jpg" alt="" class="product-cats__item-thumb">
-                    <h3 class="product-cats__item-title">Category Title</h3>
-                </a>
-            </div>
-            <div class="col-md-3 col-6">
-                <a class="product-cats__item" href="javascript:;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/product_cat_4.jpg" alt="" class="product-cats__item-thumb">
-                    <h3 class="product-cats__item-title">Category Title</h3>
-                </a>
-            </div>
-            <div class="col-md-3 col-6">
-                <a class="product-cats__item" href="javascript:;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/product_cat_5.jpg" alt="" class="product-cats__item-thumb">
-                    <h3 class="product-cats__item-title">Category Title</h3>
-                </a>
-            </div>
-            <div class="col-md-3 col-6">
-                <a class="product-cats__item" href="javascript:;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/product_cat_6.jpg" alt="" class="product-cats__item-thumb">
-                    <h3 class="product-cats__item-title">Category Title</h3>
-                </a>
-            </div>
-            <div class="col-md-3 col-6">
-                <a class="product-cats__item" href="javascript:;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/product_cat_7.jpg" alt="" class="product-cats__item-thumb">
-                    <h3 class="product-cats__item-title">Category Title</h3>
-                </a>
-            </div>
-            <div class="col-md-3 col-6">
-                <a class="product-cats__item" href="javascript:;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/product_cat_8.jpg" alt="" class="product-cats__item-thumb">
-                    <h3 class="product-cats__item-title">Category Title</h3>
-                </a>
+
+<?php  
+if( have_rows('flexible_content_product_cats', 'option') ): 
+    while ( have_rows('flexible_content_product_cats', 'option') ) : the_row(); 
+        if(get_row_layout() == 'product_cats_layout'): 
+?>
+
+    <div class="product-cats">
+        <div class="container">
+            <h2 class="product-cats__title section-title"><?php echo the_sub_field('product_cats_title'); ?></h2>
+            <div class="row">
+
+                <?php $categories = get_sub_field('product_cats_category'); ?>
+
+                <?php 
+                    if( $categories ):
+                ?>
+                    
+                    <?php 
+                        foreach( $categories as $categoryId ): 
+                        $catTitle = get_the_category_by_ID($categoryId);
+
+                        $thumbnail_id = get_woocommerce_term_meta( $categoryId, 'thumbnail_id', true ); 
+                        $image = wp_get_attachment_url( $thumbnail_id ); 
+                    ?>
+                    
+                        <div class="col-md-3 col-6">
+                            <a class="product-cats__item" href="javascript:;">
+                                <img src="<?php echo $image;?>" alt="" class="product-cats__item-thumb">
+                                <h3 class="product-cats__item-title"><?php echo $catTitle; ?></h3>
+                            </a> 
+                        </div>
+                        
+                    <?php endforeach; ?>
+                
+                <?php endif; ?>
+
             </div>
         </div>
     </div>
-</div>
+
+<?php 
+endif;
+endwhile; 
+endif; 
+?>
