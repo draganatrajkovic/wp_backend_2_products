@@ -7,9 +7,9 @@
 
 
 <?php  
-if( have_rows('flexible_content_product_slider', 'option') ): 
-    while ( have_rows('flexible_content_product_slider', 'option') ) : the_row(); 
-        if(get_row_layout() == 'product_slider_layout'): 
+if( have_rows('content') ): 
+    while ( have_rows('content') ) : the_row(); 
+        if(get_row_layout() == 'product_slider'): 
 ?>
 
     <div class="product-slider">

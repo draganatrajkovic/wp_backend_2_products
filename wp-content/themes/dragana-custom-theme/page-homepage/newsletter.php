@@ -10,13 +10,13 @@
 ?>
 
 <?php  
-if( have_rows('flexible_content_newsletter', 'option') ): 
-    while ( have_rows('flexible_content_newsletter', 'option') ) : the_row(); 
-        if(get_row_layout() == 'newsletter_layout'): 
+if( have_rows('content') ): 
+    while ( have_rows('content') ) : the_row(); 
+        if(get_row_layout() == 'newsletter'): 
 ?>
 
     <?php 
-        $image = get_sub_field('newsletter_img');
+        $image = get_sub_field('newsletter_background');
         $shortcode = get_sub_field('newsletter_shortcode');
     ?>
 

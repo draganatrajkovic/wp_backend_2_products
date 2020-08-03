@@ -7,17 +7,17 @@
 
 
 <?php  
-if( have_rows('flexible_content_product_cats', 'option') ): 
-    while ( have_rows('flexible_content_product_cats', 'option') ) : the_row(); 
-        if(get_row_layout() == 'product_cats_layout'): 
+if( have_rows('content') ): 
+    while ( have_rows('content') ) : the_row(); 
+        if(get_row_layout() == 'product_categories'): 
 ?>
 
     <div class="product-cats">
         <div class="container">
-            <h2 class="product-cats__title section-title"><?php echo the_sub_field('product_cats_title'); ?></h2>
+            <h2 class="product-cats__title section-title"><?php echo the_sub_field('product_categories_title'); ?></h2>
             <div class="row">
 
-                <?php $categories = get_sub_field('product_cats_category'); ?>
+                <?php $categories = get_sub_field('product_category'); ?>
 
                 <?php if( $categories ): ?>
                     

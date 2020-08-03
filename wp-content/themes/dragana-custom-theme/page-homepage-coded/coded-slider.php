@@ -6,8 +6,8 @@
 ?>
 
 <?php  
-if( have_rows('flexible_content_slider', 'option') ): 
-    while ( have_rows('flexible_content_slider', 'option') ) : the_row(); 
+if( have_rows('flexible_content_fields') ): 
+    while ( have_rows('flexible_content_fields') ) : the_row(); 
         if(get_row_layout() == 'slider_layout'): 
 ?>
 

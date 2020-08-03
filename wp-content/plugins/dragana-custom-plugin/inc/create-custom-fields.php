@@ -203,113 +203,63 @@ class CreateCustomFields {
                 'title' => '***CREATE FLEXIBLE CONTENT***',
                 'fields' => [
                     [
-                        'key' => 'flexible_content_banner',
-                        'label' => 'Banner',
-                        'name' => 'flexible_content_banner',
+                        'key' => 'flexible_content_fields',
+                        'label' => 'Flexible Content Fields',
+                        'name' => 'flexible_content_fields',
                         'type' => 'flexible_content',
-                        'button_label' => 'Add Banner Row',
+                        'button_label' => 'Add Section',
                         'layouts' => [
                             [
                                 'key' => 'banner_layout',
                                 'name' => 'banner_layout',
                                 'label' => 'Add Banner'
                             ],
-                        ],
-                    ],
-                    [
-                        'key' => 'flexible_content_product_cats',
-                        'label' => 'Product Categories',
-                        'name' => 'flexible_content_product_cats',
-                        'type' => 'flexible_content',
-                        'button_label' => 'Add Product Categories Row',
-                        'layouts' => [
                             [
                                 'key' => 'product_cats_layout',
                                 'name' => 'product_cats_layout',
                                 'label' => 'Add Product Category'
                             ],
-                        ],
-                    ],
-                    [
-                        'key' => 'flexible_content_product_slider',
-                        'label' => 'Product Slider',
-                        'name' => 'flexible_content_product_slider',
-                        'type' => 'flexible_content',
-                        'button_label' => 'Add Product Slider Row',
-                        'layouts' => [
                             [
                                 'key' => 'product_slider_layout',
                                 'name' => 'product_slider_layout',
                                 'label' => 'Add Product Slider'
                             ],
-                        ],
-                    ],
-                    [
-                        'key' => 'flexible_content_slider',
-                        'label' => 'Gallery',
-                        'name' => 'flexible_content_slider',
-                        'type' => 'flexible_content',
-                        'button_label' => 'Add Slider Row',
-                        'layouts' => [
                             [
                                 'key' => 'slider_layout',
                                 'name' => 'slider_layout',
                                 'label' => 'Add Gallery'
                             ],
-                        ],
-                    ],
-                    [
-                        'key' => 'flexible_content_story_block',
-                        'label' => 'Story Block',
-                        'name' => 'flexible_content_story_block',
-                        'type' => 'flexible_content',
-                        'button_label' => 'Add Story Block Row',
-                        'layouts' => [
                             [
                                 'key' => 'story_block_layout',
                                 'name' => 'story_block_layout',
                                 'label' => 'Add Story Block'
                             ],
-                        ],
-                    ],
-                    [
-                        'key' => 'flexible_content_newsletter',
-                        'label' => 'Newsletter',
-                        'name' => 'flexible_content_newsletter',
-                        'type' => 'flexible_content',
-                        'button_label' => 'Add Newsletter Row',
-                        'layouts' => [
                             [
                                 'key' => 'newsletter_layout',
                                 'name' => 'newsletter_layout',
                                 'label' => 'Add Newsletter'
                             ],
-                        ],
-                    ],
-                    [
-                        'key' => 'flexible_content_team_list',
-                        'label' => 'Team List',
-                        'name' => 'flexible_content_team_list',
-                        'type' => 'flexible_content',
-                        'button_label' => 'Add Team List Row',
-                        'layouts' => [
                             [
                                 'key' => 'team_list_layout',
                                 'name' => 'team_list_layout',
                                 'label' => 'Add Team List'
                             ],
+                            
                         ],
                     ]
                 ],
                 'location' => [
                     [
                         [
-                            'param' => 'options_page',
+                            'param' => 'page_template',
                             'operator' => '==',
-                            'value' => 'options-page',
+                            'value' => 'page-homepage-coded.php',
                         ],
                     ],
-                ]
+                ],
+                'hide_on_screen' => [
+                    'the_content'
+                ],
             ]
         );
 
@@ -329,7 +279,7 @@ class CreateCustomFields {
                 'label' => 'Banner Title',
                 'name' => 'banner_title',
                 'type' => 'text',
-                'parent' => 'flexible_content_banner', //flex field key
+                'parent' => 'flexible_content_fields', //flex field key
                 'parent_layout' => 'banner_layout', // layout key
             ]
         );
@@ -340,21 +290,10 @@ class CreateCustomFields {
                 'label' => 'Banner Subtitle',
                 'name' => 'banner_subtitle',
                 'type' => 'text',
-                'parent' => 'flexible_content_banner', //flex field key
+                'parent' => 'flexible_content_fields', //flex field key
                 'parent_layout' => 'banner_layout', // layout key
             ]
         );
-
-        // acf_add_local_field(
-        //     [
-        //         'key' => 'banner_img',
-        //         'label' => 'Banner Background Image',
-        //         'name' => 'banner_img',
-        //         'type' => 'image',
-        //             'parent' => 'flexible_content_banner', //flex field key
-        //             'parent_layout' => 'banner_layout', // layout key
-        //     ]
-        // );
 
         acf_add_local_field(
             [
@@ -362,7 +301,7 @@ class CreateCustomFields {
                 'label' => 'Banner Background Image',
                 'name' => 'banner_img',
                 'type' => 'flexible_content',
-                    'parent' => 'flexible_content_banner', //flex field key
+                    'parent' => 'flexible_content_fields', //flex field key
                     'parent_layout' => 'banner_layout', // layout key
                 'layouts' => [
                     [
@@ -413,7 +352,7 @@ class CreateCustomFields {
                 'label' => 'Product Categories Title',
                 'name' => 'product_cats_title',
                 'type' => 'text',
-                'parent' => 'flexible_content_product_cats', //flex field key
+                'parent' => 'flexible_content_fields', //flex field key
                 'parent_layout' => 'product_cats_layout', // layout key
             ]
         );
@@ -425,7 +364,7 @@ class CreateCustomFields {
                 'name' => 'product_cats_category',
                 'type' => 'taxonomy',
                 'taxonomy' => 'product_cat',
-                'parent' => 'flexible_content_product_cats', //flex field key
+                'parent' => 'flexible_content_fields', //flex field key
                 'parent_layout' => 'product_cats_layout', // layout key
                 // 'return_value' => 'term_object'
             ]
@@ -439,9 +378,9 @@ class CreateCustomFields {
                 'label' => 'Latest Products Title',
                 'name' => 'product_slider_title',
                 'type' => 'text',
-                    'parent' => 'flexible_content_product_slider', //flex field key
+                    'parent' => 'flexible_content_fields', //flex field key
                     'parent_layout' => 'product_slider_layout', // layout key
-                'button_label' => 'Add Latest Products Title',
+                // 'button_label' => 'Add Latest Products Title',
             ]
         );
     }
@@ -453,7 +392,7 @@ class CreateCustomFields {
                 'label' => 'Slider Gallery',
                 'name' => 'slider_gallery',
                 'type' => 'gallery',
-                    'parent' => 'flexible_content_slider', //flex field key
+                    'parent' => 'flexible_content_fields', //flex field key
                     'parent_layout' => 'slider_layout', // layout key
                 'button_label' => 'Add Gallery',
                 'size' => 'large',
@@ -473,7 +412,7 @@ class CreateCustomFields {
                 'ui_on_text' => 'Regular Pozition',
                 'ui_off_text' => 'Reversed Pozition',
                 'default_value' => true,
-                'parent' => 'flexible_content_story_block', //flex field key
+                'parent' => 'flexible_content_fields', //flex field key
                 'parent_layout' => 'story_block_layout', // layout key
             ]
         );
@@ -485,7 +424,7 @@ class CreateCustomFields {
                 'name' => 'story_block_img',
                 'type' => 'image',
                 'return_format' => 'url',//if return url format no need for $image['url'] when we showing in html
-                    'parent' => 'flexible_content_story_block', //flex field key
+                    'parent' => 'flexible_content_fields', //flex field key
                     'parent_layout' => 'story_block_layout', // layout key
                 'wrapper' => [
                     'class' => '',
@@ -500,7 +439,7 @@ class CreateCustomFields {
                 'label' => 'Story Block Title',
                 'name' => 'story_block_title',
                 'type' => 'text',
-                    'parent' => 'flexible_content_story_block', //flex field key
+                    'parent' => 'flexible_content_fields', //flex field key
                     'parent_layout' => 'story_block_layout', // layout key
                 'wrapper' => [
                     'class' => '',
@@ -515,7 +454,7 @@ class CreateCustomFields {
                 'label' => 'Story Block Text',
                 'name' => 'story_block_text',
                 'type' => 'wysiwyg',
-                    'parent' => 'flexible_content_story_block', //flex field key
+                    'parent' => 'flexible_content_fields', //flex field key
                     'parent_layout' => 'story_block_layout', // layout key
                 'wrapper' => [
                     'class' => '',
@@ -530,7 +469,7 @@ class CreateCustomFields {
                 'label' => 'Story Block Link',
                 'name' => 'story_block_link',
                 'type' => 'link',
-                    'parent' => 'flexible_content_story_block', //flex field key
+                    'parent' => 'flexible_content_fields', //flex field key
                     'parent_layout' => 'story_block_layout', // layout key
                 'wrapper' => [
                     'class' => '',
@@ -547,7 +486,7 @@ class CreateCustomFields {
                 'label' => 'Newsletter Title',
                 'name' => 'newsletter_title',
                 'type' => 'text',
-                'parent' => 'flexible_content_newsletter', //flex field key
+                'parent' => 'flexible_content_fields', //flex field key
                 'parent_layout' => 'newsletter_layout', // layout key
             ]
         );
@@ -559,7 +498,7 @@ class CreateCustomFields {
                 'name' => 'newsletter_img',
                 'type' => 'image',
                 'return_format' => 'url',
-                'parent' => 'flexible_content_newsletter', //flex field key
+                'parent' => 'flexible_content_fields', //flex field key
                 'parent_layout' => 'newsletter_layout', // layout key
             ]
         );
@@ -570,58 +509,48 @@ class CreateCustomFields {
                 'label' => 'Newsletter Shortcode',
                 'name' => 'newsletter_shortcode',
                 'type' => 'text',
-                'parent' => 'flexible_content_newsletter', //flex field key
+                'parent' => 'flexible_content_fields', //flex field key
                 'parent_layout' => 'newsletter_layout', // layout key
             ]
         );
     }
 
     public function create_team_list_fields() {
-        //just one title
         acf_add_local_field(
             [
                 'key' => 'team_list_title',
                 'label' => 'Team List Title',
                 'name' => 'team_list_title',
                 'type' => 'text',
-                'parent' => 'flexible_content_team_list', //flex field key
+                'parent' => 'flexible_content_fields', //flex field key
                 'parent_layout' => 'team_list_layout', // layout key
             ]
         );
 
-        //add unlimited rows for team
         acf_add_local_field(
             [
-                'key' => 'team_list_post_obj',
+                'key' => 'team_list_single_post_1',
                 'label' => 'Select Team',
-                'name' => 'team_list_post_obj',
-                'type' => 'flexible_content',
-                    'parent' => 'flexible_content_team_list', //flex field key
-                    'parent_layout' => 'team_list_layout', // layout key
-                'layouts' => [
-                    [
-                        'key' => 'single_team_layout',
-                        'name' => 'single_team_layout',
-                        'label' => 'Add Team'
-                    ],
-                ],
-                'button_label' => 'Add Team'
+                'name' => 'team_list_single_post_1',
+                'type' => 'post_object',
+                'post_type' => 'team',
+                'parent' => 'flexible_content_fields', //flex field key
+                'parent_layout' => 'team_list_layout', // layout key
             ]
         );
 
         acf_add_local_field(
             [
-                'key' => 'team_list_single_post',
+                'key' => 'team_list_single_post_2',
                 'label' => 'Select Team',
-                'name' => 'team_list_single_post',
+                'name' => 'team_list_single_post_2',
                 'type' => 'post_object',
                 'post_type' => 'team',
-                'parent' => 'team_list_post_obj', //flex field key
-                'parent_layout' => 'single_team_layout'
+                'parent' => 'flexible_content_fields', //flex field key
+                'parent_layout' => 'team_list_layout', // layout key
             ]
         );
     }
-
 
 }
 

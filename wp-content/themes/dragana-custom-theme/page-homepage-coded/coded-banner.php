@@ -6,16 +6,16 @@
 ?>
 
 <?php  
-if( have_rows('flexible_content_banner', 'option') ): 
-    while ( have_rows('flexible_content_banner', 'option') ) : the_row(); 
+if( have_rows('flexible_content_fields') ): 
+    while ( have_rows('flexible_content_fields') ) : the_row(); 
         if(get_row_layout() == 'banner_layout'): 
 ?>
 
     <div class="banner">
 
         <?php  
-        if( have_rows('banner_img', 'option') ): 
-            while ( have_rows('banner_img', 'option') ) : the_row(); 
+        if( have_rows('banner_img') ): 
+            while ( have_rows('banner_img') ) : the_row(); 
                 if(get_row_layout() == 'banner_img_layout'): 
         ?>
         
