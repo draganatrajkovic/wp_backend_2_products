@@ -19,7 +19,7 @@ if( have_rows('flexible_content_fields') ):
             <?php
                 $arrayTeamMembers = ['team_list_single_post_1', 'team_list_single_post_2'];
 
-                foreach ($arrayTeamMembers as $member) {
+                foreach ($arrayTeamMembers as $member) :
                     
                     $singlePost = get_sub_field( $member ); 
                     $singlePostTitle = $singlePost->post_title; //'cos it's object!!!
@@ -27,13 +27,8 @@ if( have_rows('flexible_content_fields') ):
                     
                     $singlePostId = $singlePost->ID;
                     
-                    /*______________________________________________*/
-                        /* acces to the featured image */
-                        $post = get_post($singlePostId);
-                        
-                        /* grab the url for the full size featured image */
-                        $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full'); 
-                    /*______________________________________________*/
+                    /* grab the url for the full size featured image */
+                    $featured_img_url = get_the_post_thumbnail_url($singlePostId, 'full'); 
 
                     if($singlePost) :?>
                         
@@ -61,9 +56,10 @@ if( have_rows('flexible_content_fields') ):
                                 </div>
                             </div>
                         </div>
-                    <?php endif; 
-                }
-            ?>
+                <?php 
+                endif; 
+                endforeach;
+                ?>
 
             </div>
         </div>
